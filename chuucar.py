@@ -2,9 +2,8 @@ import json
 import slack_sdk
 from datetime import date
 
-# token : xoxb-4318076994242-4360939404208-xS4HHYEQYOiOh1qkAIprNrgH
 
-SLACK_TOKEN = "xoxb-4318076994242-4360939404208-xS4HHYEQYOiOh1qkAIprNrgH"
+SLACK_TOKEN = "토큰은 비밀이지롱"
 SLACK_CHANNEL = "#ch-slackbot-test"
 
 b_day='{"ch": "20000817","yg": "20000207","jw": "19990311","test": "20001110","test2":"11991110"}'
