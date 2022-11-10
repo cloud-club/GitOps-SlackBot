@@ -2,7 +2,7 @@ import json
 import slack_sdk
 from datetime import date
 
-with open('../token.json', 'r') as token_json:
+with open('../GitOps-SlackBot/token.json', 'r') as token_json:
     secret_token = json.load(token_json)
 
 SLACK_TOKEN = secret_token["token"]
