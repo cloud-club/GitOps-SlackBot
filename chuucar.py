@@ -6,6 +6,12 @@ from datetime import date, datetime, timezone, timedelta
 token_path = './token.json'
 with open(token_path, 'r') as token_json:
     secret_token = json.load(token_json)
+    
+image_path = './image.json'
+with open(image_path, 'r') as image_json:
+    image_array = json.load(image_json)
+num = random.randomint(1,len(image_array))
+image = image_array[num]
 
 SLACK_TOKEN = secret_token["token"]
 SLACK_CHANNEL = "#ch-slackbot-test"
@@ -16,7 +22,15 @@ with open(json_path, 'r') as birth_json:
 
 def chuucar_send_msg(slack_msg):
     client = slack_sdk.WebClient(token=SLACK_TOKEN)
-    client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg)
+    data = {
+        "channel":SLACK_TOKEN,
+        "text":slack_msg,
+        "attachments":[{
+            "image_url":image
+        }]
+    }
+    client.chat_postMessage(data = json.dumps(data))
+    # client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg)
 
 #datetime 한국시간 변경
 KST = timezone(timedelta(hours=9))
