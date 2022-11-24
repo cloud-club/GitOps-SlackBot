@@ -5,7 +5,6 @@ WORKDIR /root
 ADD . .
 
 RUN pip install --upgrade pip && \
-    pip install slack_sdk && \
-    pip install datetime
+    pip install -r requirements.txt 
 
 CMD ["python","chuucar.py"]
