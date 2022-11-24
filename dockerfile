@@ -13,7 +13,7 @@ RUN apt-get update && \
 # RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # CMD 명령어가 실행될 경로
-WORKDIR .
+WORKDIR ./
 
 # 백그라운드에서 실행하도록
 CMD ["python","chuucar.py"]
