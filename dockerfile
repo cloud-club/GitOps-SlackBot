@@ -9,6 +9,7 @@ FROM python:3
 #    apt-get install nginx -y && \
 #    echo "running dockerfile..."
 
+# 이미지 빌드 시 실행되는 명령어
 RUN pip install slack_sdk && \
     pip install datetime && \
     pip install random && \
@@ -21,6 +22,7 @@ RUN pip install slack_sdk && \
 WORKDIR ./
 
 # 백그라운드에서 실행하도록
+# 이미지에서 파이썬 스크립트를 실행하는 것이므로 컨테이너가 실행될 때 
 CMD ["python","chuucar.py"]
 
 # port number
