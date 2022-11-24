@@ -30,24 +30,12 @@ with open(json_path, 'r') as birth_json:
 def chuucar_send_msg(slack_msg):
     client = slack_sdk.WebClient(token=SLACK_TOKEN)
     data = {
-<<<<<<< HEAD
-        "channel":SLACK_TOKEN,
-        "text":slack_msg,
-        "attachments":[{
-            "image_url":image
-        }]
-    }
-    client.chat_postMessage(data = json.dumps(data))
-    # client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg)
-=======
         "attachments":[{
             "image_url": image
         }]
     }
     client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg, data=json.dumps(data))
     # client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg)
-
->>>>>>> 031427bd594bcfd833676c09c6a16a6978400f08
 
 KST = timezone(timedelta(hours=9))
 today=datetime.now(KST)
