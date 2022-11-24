@@ -1,21 +1,22 @@
-# # FROM 이미지 이름:태그명
-# FROM python3
-
-# # dockerfile 작성자
-# MAINTAINER yugyeong <uugyeong27@gmail.com>
-
-# # Clean up APT when done.
-# RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# EXPOSE 80
-
-# CMD  echo "dockerfile test"
+# dockerfile 작성자
+# MAINTAINER name
 
 FROM python:3
 
-RUN apt update && \
-    apt install nginx -y
+# COPY ./* ./
 
-COPY ./* ./
+RUN apt-get update && \
+    apt-get install nginx -y && \
+    echo "running dockerfile..."
 
+# Clean up APT when done.
+# RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# CMD 명령어가 실행될 경로
+WORKDIR .
+
+# 백그라운드에서 실행하도록
 CMD ["python","chuucar.py"]
+
+# port number
+EXPOSE 80
