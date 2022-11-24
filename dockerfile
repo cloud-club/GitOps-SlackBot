@@ -5,8 +5,13 @@ FROM python:3
 
 # COPY ./* ./
 
-RUN apt-get update && \
-    apt-get install nginx -y && \
+# RUN apt-get update && \
+#    apt-get install nginx -y && \
+#    echo "running dockerfile..."
+
+RUN pip install slack_sdk && \
+    pip install datetime && \
+    pip install random && \
     echo "running dockerfile..."
 
 # Clean up APT when done.
