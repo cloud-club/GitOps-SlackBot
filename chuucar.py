@@ -13,6 +13,13 @@ with open(image_path, 'r') as image_json:
 num = random.randomint(1,len(image_array))
 image = image_array[num]
 
+image_path = './image.json'
+with open(image_path, 'r') as image_json:
+    image_array = json.load(image_json)
+    image_array = list(image_array)
+num = random.randint(0, len(image_array)-1)
+image = image_array[num]
+
 SLACK_TOKEN = secret_token["token"]
 SLACK_CHANNEL = "#ch-slackbot-test"
 
@@ -23,6 +30,7 @@ with open(json_path, 'r') as birth_json:
 def chuucar_send_msg(slack_msg):
     client = slack_sdk.WebClient(token=SLACK_TOKEN)
     data = {
+<<<<<<< HEAD
         "channel":SLACK_TOKEN,
         "text":slack_msg,
         "attachments":[{
@@ -31,8 +39,16 @@ def chuucar_send_msg(slack_msg):
     }
     client.chat_postMessage(data = json.dumps(data))
     # client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg)
+=======
+        "attachments":[{
+            "image_url": image
+        }]
+    }
+    client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg, data=json.dumps(data))
+    # client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg)
 
-#datetime 한국시간 변경
+>>>>>>> 031427bd594bcfd833676c09c6a16a6978400f08
+
 KST = timezone(timedelta(hours=9))
 today=datetime.now(KST)
 
