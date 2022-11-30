@@ -2,7 +2,7 @@ name: Docker Build Test_KCC
 
 on:
   push:
-    branches: [KCH_ci_test]
+    branches: [ KCH_ci_test ]
 
 jobs:
   build:
