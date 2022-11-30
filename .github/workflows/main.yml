@@ -5,8 +5,10 @@ on:
     branches: [KCH_ci_test]
 
 jobs:
-  node-sample-build:
+  build:
+    name: Build Image
     runs-on: ubuntu-latest
+    
     steps:
     - name: Source Code Checkout
       uses: actions/checkout@master
