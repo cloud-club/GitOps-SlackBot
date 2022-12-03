@@ -29,8 +29,6 @@ def chuucar_send_msg(slack_msg):
         }]
     }
     client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg, data=json.dumps(data))
-    # client.chat_postMessage(channel=SLACK_CHANNEL,text=slack_msg)
-
 
 KST = timezone(timedelta(hours=9))
 today=datetime.now(KST)
