@@ -8,6 +8,9 @@ jobs:
   build:
     name: Build Image
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     
     steps:
     - name: Source Code Checkout
