@@ -3,6 +3,7 @@ name: Docker Build Test_KCC
 on:
   push:
     branches: [ main,KCH_ci_test ]
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
