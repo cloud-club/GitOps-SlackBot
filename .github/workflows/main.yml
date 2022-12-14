@@ -10,7 +10,6 @@ env:
   
 jobs:
   build-and-push-image:
-    name: Build Image
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -29,11 +28,18 @@ jobs:
         registry: ghcr.io
         username: chaeheekang
         password: ${{ secrets.KCH_SECRET_TOKEN }}
+      
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: ${{ github.GITHUB_SHA }}
         
     - name: Build and push
       uses: docker/build-push-action@v3
       with:
         context: .
-        file: ./Dockerfile
         push: true
-        tags: ghcr.io/chaeheekang/chuucarbot:0.1
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
